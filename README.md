@@ -1,1 +1,2 @@
-hola estos son los protoripos que se an desarrollado para el software segelid
+
+el archivo vista2 es solo para prueba no va en el software segeli
