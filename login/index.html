@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <header>
+        <div class="menu-icono" >
+            <span class="barra"></span>
+            <span class="barra"></span>
+            <span class="barra"></span>
+        </div>
+
+        
+        <div class="ini">
+            <nav >
+                <ul><a id="ini" href="#">inicio</a></ul>
+            </nav>
+        </div>
+    </header>
+    
+        <h1>SEGELI</h1>
+    <div class="center">    
+        <div class="login">
+            <div class="log">
+            
+                <input type="text" id="user" placeholder="Usuario">
+                <input type="password" id="pass" placeholder="Contraseña">
+                <div class="span">
+                    <a href="#"> ¿olvido su contraseña?</a>
+                    <a href="../registro/registro.html"> registrarse</a>
+                </div>
+            </div>
+        
+            <div class="but">
+                <button id="but" onclick="login()"> Login </button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="menu-inf">
+            <a href="#">INFORMACIÓN</a>
+            <a href="#">CONTACTO</a>
+            <a href="../redes/index.html">REDES</a>
+        </div>
+    </footer>
+    
+<script>
+
+function login(){
+    let user = document.getElementById("user").value
+    let password = document.getElementById("pass").value
+
+    let savedUser = localStorage.getItem("usuario")
+    let savedPass = localStorage.getItem("contraseña")
+
+    if (user === "admin" && password === "12345" || 
+        user ===savedUser && password === savedPass){
+        window.location.href ="../vista2/index.html";
+    }else{
+        alert("Usuario o contraseña incorrectos")
+    }
+
+}
+</script>
+    
+</body>
+</html>

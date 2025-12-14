@@ -1,0 +1,72 @@
+body{
+    background: rgb(22, 36, 21);
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+header{
+    width: 100%;
+    position: absolute;
+}
+
+p{
+    color: bisque;
+    text-align: center;
+}
+.ini{
+    padding: 20px;
+}
+.ini a{
+    color: bisque;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.301);
+    font-size: 40px;
+    border-radius: 10px;
+    padding: 0px 15px;
+}
+.ini a:hover {
+    background: bisque;
+    color: rgba(3, 3, 3, 0.301);
+}
+.decoration{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.decoration h1{
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+}
+.redes {
+    background: rgba(255, 255, 255, 0.199);
+    font-size: 30px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap:  15px;
+    border-radius: 10px;
+    
+}
+.redes a{
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+.redes a:hover{
+    color: bisque;
+}
+.fond{
+    justify-content: center;
+   align-items:center ;
+}
+
+
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul><button id="home" onclick="home()">Inicio</button></ul>
+        </nav>
+    </header>
+    <div class="global">
+        <h1 class="register">Registro de usuario</h1>
+        <div class="user">
+            <input type="text" id="nomber" placeholder="Nombres">
+            <input type="text" id="lastName" placeholder="Apellidos">
+            <input class="correo" type="email" id="email" placeholder="Correo">
+            <input type="text" id="phone" placeholder="Telefono">
+            <input type="text" id="newUser" placeholder="Usuario">
+            <input type="password" id="newPass" placeholder="Contraseña">
+            <button id="btn" onclick="registrar()">Registrar</button>
+        </div>
+    </div>
+<script>
+    function registrar(){
+        let user = document.getElementById("newUser").value
+        let pass = document.getElementById("newPass").value
+
+        if(user === "" || pass ==="" ){
+            alert("Tiene que llenar todos los campos")
+            return;
+        }
+        
+        localStorage.setItem("usuario", user)
+        localStorage.setItem("contraseña", pass)
+
+        alert("Registro exitoso")
+
+        return;
+
+    }
+    function home(){
+        window.location.href = "../login/index.html"
+
+    }
+
+    
+
+</script>
+
+</body>
+</html>

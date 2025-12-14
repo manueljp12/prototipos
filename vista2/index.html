@@ -1,0 +1,187 @@
+<!DOCTYPE html>    
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Cómo instalar Visual Studio Code</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+   
+    <div id="hoja">
+
+        <h1>Tutorial: <br> Cómo instalar Visual Studio Code</h1>
+
+        <div class="barra-azul">
+
+            <ol>
+                <li><a href="#descargar">Descargar Visual Studio Code</a></li>
+                
+                <li><a href="#instalar">Abrir el instalador</a></li>
+                
+                <li><a href="#permisos">Aceptar permisos</a></li>
+                
+                <li><a href="#finalizar">Finalizar la instalacion</a></li>
+            </ol>
+
+        </div>
+
+        <h2 id="descargar">1. Descargar Visual Code</h2>
+
+        <div class="contenedor-imagenes">
+
+            <img class="logo" src="imagenes/visual-studio-code.png"
+                alt="Página oficial de descarga de Visual Studio Code" >
+
+            <p class="contenedorTex">
+                Visual Studio Code, comúnmente conocido como VS Code, es un editor de código gratuito 
+                y liviano que ha surgido rápidamente como una de las herramientas más populares 
+                para desarrolladores de todos los niveles en una variedad de lenguajes de programación
+            </p>
+
+        </div>
+
+        <p class="espacio">
+            Para descargar Visual Studio Code, primero debes ir al sitio oficial del programa 
+            <a href="https://code.visualstudio.com/" target="_blank">CLICK AQUÍ.</a><br>
+            
+            En la página encontrarás un botón llamado <strong>“Download for Windows”</strong> 
+            (o la versión que corresponda a tu sistema operativo). 
+            Haz clic en ese botón para iniciar la descarga.
+            
+            <img class="imagenes" src="imagenes/descargar-vscode.png" alt="“Download for windows">
+        </p> 
+
+        <h2 id="instalar">2. Abrir el instalador</h2> 
+        
+        <p class="espacio">
+            Una vez que hayas descargado el archivo de instalación de Visual Studio Code, 
+            generalmente llamado <strong>VSCodeUserSetup.exe</strong>, 
+            debes buscarlo en la carpeta donde se guardan tus descargas.
+            
+            Haz doble clic sobre el archivo para abrir el instalador.
+            
+            <img class="imagenes" src="imagenes/instalador.png"
+                alt="Instalador de Visual Studio Code" > 
+        </p>
+
+        <h2 id="permisos">3. Aceptar permisos</h2>
+
+        <p class="espacio">
+            cuando abras el instalador, windows podría mostrar un mensaje preguntando 
+            si deseas permitir que el programa realice cambios en tu dispositivo. 
+            Este mensaje es normal en la instalacion de cualquier software confiables.
+            Haz clic en <strong>"Sí"</strong> para continuar con la instalación. 
+
+            <img class="imagen" src="imagenes/permisos.png" alt="Aceptar permisos ">
+        </p>
+
+        <h2 id="finalizar">4. Finalizar instalación</h2>
+
+        <p>
+            Después de aceptar los permisos, se abrirá la ventana principal del instalador de 
+            Visual Studio Code. Aquí deberás:
+            <br><br>
+            1. Aceptar los términos y condiciones de uso.
+            <img class="imagenes" src="imagenes/Terminos-y-condiciones.png" 
+            alt="Aceptar terminos y condiciones"><br>
+
+            2. Elegir la carpeta donde se instalará el programa.
+            <div class="contenedor-imagenes">
+                <img class="instalacion" src="imagenes/Ruta.png" alt="Ruta de unstalacion">
+                <img class="instalacion " src="imagenes/Ruta2.png" alt="Ruta de unstalacion">
+            </div>
+            
+            3. Seleccionar si deseas agregar accesos directos o que el programa se agregue
+            al menú contextual y click en siguiente.
+            <img class="imagenes" src="imagenes/Acceso.png" alt="Seleccionar opciones">
+
+            4. Finalmente, haz clic en <strong>"Install"</strong> para comenzar la instalación.
+            El proceso tomará unos segundos.
+            <div class="contenedor-imagenes">
+                <img class="instalacion" src="imagenes/Instalar.png" alt="click en instalar">
+                <img class="instalacion" src="imagenes/Proceso-instalacion.png" alt="Proceso de instalacion">
+            </div>
+            
+            5. Cuando haya terminado, presiona <strong>"Finish"</strong> 
+            y Visual Studio Code se abrirá automáticamente.
+            <img class="imagenes" src="imagenes/finalizar.png" alt="Click en finalizar">
+            
+
+        </p>
+
+        <hr>
+
+        <h2>💬comentarios</h2>
+
+        <div id="caja-comentarios">
+            <textarea id="comentario" placeholder="Escribe un comentario..." rows="4"></textarea>
+            <button id="caja-comentarios" onclick="agregarComentario()">Enviar</button>
+        </div>
+
+        <h3>Comentarios</h3>
+
+        <div id="lista-comentarios"></div>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", cargarComentarios);
+
+        function agregarComentario() {
+            const texto = document.getElementById("comentario").value.trim();
+            if (texto === "") {
+                alert("El comentario no puede estar vacío");
+                return;
+            }
+
+           
+            const comentario = {
+                texto: texto,
+                fecha: new Date().toLocaleString() 
+            };
+
+            mostrarComentario(comentario);
+            guardarComentario(comentario);
+
+            document.getElementById("comentario").value = "";
+        }
+
+        function mostrarComentario(comentario) {
+            const lista = document.getElementById("lista-comentarios");
+
+            const nuevo = document.createElement("div");
+            nuevo.className = "comentario-item";
+
+            
+            nuevo.innerHTML = `
+                <p>${comentario.texto}</p>
+                <span class="fecha">${comentario.fecha}</span>
+            `;
+
+            
+            lista.prepend(nuevo);
+        }
+
+        function guardarComentario(comentario) {
+            let comentarios = JSON.parse(localStorage.getItem("comentarios")) || [];
+            comentarios.push(comentario);
+            localStorage.setItem("comentarios", JSON.stringify(comentarios));
+        }
+
+        function cargarComentarios() {
+            let comentarios = JSON.parse(localStorage.getItem("comentarios")) || [];
+            comentarios.forEach(c => mostrarComentario(c));
+        }
+    </script>
+    
+    
+</body>
+
+</html>
